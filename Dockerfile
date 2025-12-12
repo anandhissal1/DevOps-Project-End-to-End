@@ -17,8 +17,6 @@ RUN pip install --no-cache-dir --no-index --find-links=/wheels -r requirements.t
 # Drop privileges
 USER appuser
 EXPOSE 8080
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-CMD curl -f http://localhost:8080/health || exit 1
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
   CMD curl -f http://localhost:8080/health || exit 1
